@@ -25,11 +25,11 @@ public class PropertyUnitsGrid extends Panel {
     private static final long serialVersionUID = 1L;
 
 
-    protected final WebMarkupContainer propertyUnitsGrid;
+//    protected final WebMarkupContainer propertyUnitsGrid;
 
-    public PropertyUnitsGrid(String id, IModel<?> model) {
-        super(id, model);
-        propertyUnitsGrid = new WebMarkupContainer("PropertyUnitsGrid");
-        propertyUnitsGrid.setOutputMarkupId(true);
+    public PropertyUnitsGrid(String id) {
+        super(id);
+//        propertyUnitsGrid = new WebMarkupContainer("PropertyUnitsGrid");
+//        propertyUnitsGrid.setOutputMarkupId(true);
     }
 }
