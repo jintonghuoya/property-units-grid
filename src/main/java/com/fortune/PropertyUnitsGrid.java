@@ -16,6 +16,7 @@
 package com.fortune;
 
 import lombok.extern.slf4j.Slf4j;
+import org.apache.wicket.markup.html.WebMarkupContainer;
 import org.apache.wicket.markup.html.panel.Panel;
 import org.apache.wicket.model.IModel;
 
@@ -23,7 +24,12 @@ import org.apache.wicket.model.IModel;
 public class PropertyUnitsGrid extends Panel {
     private static final long serialVersionUID = 1L;
 
+
+    protected final WebMarkupContainer propertyUnitsGrid;
+
     public PropertyUnitsGrid(String id, IModel<?> model) {
         super(id, model);
+        propertyUnitsGrid = new WebMarkupContainer("PropertyUnitsGrid");
+        propertyUnitsGrid.setOutputMarkupId(true);
     }
 }
