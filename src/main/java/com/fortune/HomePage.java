@@ -12,7 +12,7 @@ public class HomePage extends WebPage {
 	public HomePage(final PageParameters parameters) {
 		super(parameters);
 
-		add(new Label("version", getApplication().getFrameworkSettings().getVersion()));
+//		add(new Label("version", getApplication().getFrameworkSettings().getVersion()));
 
 		add(PropertyUnitsGrid = new PropertyUnitsGrid("PropertyUnitsGrid"));
 
