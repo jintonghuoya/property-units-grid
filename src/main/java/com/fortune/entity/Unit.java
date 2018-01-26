@@ -1,6 +1,7 @@
 package com.fortune.entity;
 
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 import java.util.Date;
 
@@ -18,4 +19,6 @@ public class Unit {
     private int type;
     //租约开始时间
     private Date startTime;
+    //面积占整层楼的比例
+    private Double widthPercent;
 }
