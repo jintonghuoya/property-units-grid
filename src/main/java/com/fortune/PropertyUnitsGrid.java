@@ -18,12 +18,15 @@ package com.fortune;
 import com.fortune.entity.Floor;
 import com.fortune.entity.Unit;
 import lombok.extern.slf4j.Slf4j;
+import org.apache.wicket.AttributeModifier;
 import org.apache.wicket.markup.ComponentTag;
+import org.apache.wicket.markup.html.WebMarkupContainer;
 import org.apache.wicket.markup.html.basic.Label;
 import org.apache.wicket.markup.html.list.ListItem;
 import org.apache.wicket.markup.html.list.ListView;
 import org.apache.wicket.markup.html.panel.Panel;
 import org.apache.wicket.model.CompoundPropertyModel;
+import org.apache.wicket.model.PropertyModel;
 
 import java.util.List;
 
@@ -37,41 +40,35 @@ public class PropertyUnitsGrid extends Panel {
     public PropertyUnitsGrid(String id) {
         super(id);
         List<Floor> floors = DataFixture.generateDemoData().getFloors();
-        add(new ListView<Floor>("floors",floors) {
+        add(new ListView<Floor>("floors", floors) {
             @Override
             protected void populateItem(final ListItem<Floor> item) {
-                setDefaultModel(new CompoundPropertyModel(item.getModel()));
+//                setDefaultModel(new CompoundPropertyModel(item.getModel()));
 
-                item.add(new Label("name"));
-                item.add(new Label("area"));
+                item.add(new Label("floor_name", new PropertyModel(item.getModel(), "name")));
+                item.add(new Label("floor_area", new PropertyModel(item.getModel(), "area")));
                 List<Unit> units = item.getModelObject().getUnits();
                 double totalArea = 0;
-                for (Unit unit : units){
+                for (Unit unit : units) {
                     totalArea += unit.getArea();
                 }
 
-                if (totalArea>=0) {
+                if (totalArea >= 0) {
                     for (Unit unit : units) {
                         unit.setWidthPercent(unit.getArea() / totalArea);
                     }
                 }
 
-                add(new ListView<Unit>("units",units) {
+                item.add(new ListView<Unit>("units", units) {
                     @Override
                     protected void populateItem(final ListItem<Unit> listItem) {
-                        setDefaultModel(new CompoundPropertyModel(listItem.getModel()));
-                        listItem.add(new Label("dynamic_width"){
-                            @Override
-                            protected void onComponentTag(ComponentTag tag) {
-                                super.onComponentTag(tag);
-                                //Turn the h1 tag to a span
-                                //tag.setName("span");
-                                //Add formatting style
-                                tag.put("style", listItem.getModelObject().getWidthPercent()+"%");
-                            }
-                        });
-                        listItem.add(new Label("name"));
-                        listItem.add(new Label("area"));
+//                        listItem.add(
+//                                new Label("dynamic_width")
+//                                        .add(AttributeModifier.replace("style", "width:"+listItem.getModelObject().getWidthPercent()*100+"%;")
+//                                        )
+//                        );
+                        listItem.add(new Label("unit_name", new PropertyModel(listItem.getModel(), "name")));
+                        listItem.add(new Label("unit_area", new PropertyModel(listItem.getModel(), "area")));
                     }
                 });
             }

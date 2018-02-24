@@ -3,10 +3,11 @@ package com.fortune.entity;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.io.Serializable;
 import java.util.Date;
 
 @Data
-public class Unit {
+public class Unit implements Serializable {
     //名字
     private String name;
     //面积

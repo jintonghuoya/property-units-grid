@@ -37,10 +37,12 @@ public class DataFixture  {
             floor.setName(i+"--楼");
             floor.setArea(100*(i+1));
             for (int j=0;j<3;j++){
-                Unit unit = new Unit();
-                unit.setName(i + "--楼--" + j + "--单元");
-                unit.setArea(100*(j+1));
-                units.add(unit);
+                if(i == j){
+                    Unit unit = new Unit();
+                    unit.setName(i + "--楼--" + j + "--单元");
+                    unit.setArea(100*(j+1));
+                    units.add(unit);
+                }
             }
             floor.setUnits(units);
             floors.add(floor);

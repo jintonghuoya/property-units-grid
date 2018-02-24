@@ -2,10 +2,11 @@ package com.fortune.entity;
 
 import lombok.Data;
 
+import java.io.Serializable;
 import java.util.List;
 
 @Data
-public class Property {
+public class Property implements Serializable {
     //名字
     private String name;
     //总面积
