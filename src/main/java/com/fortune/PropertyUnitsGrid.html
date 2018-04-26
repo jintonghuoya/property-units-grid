@@ -24,14 +24,16 @@
 <wicket:panel>
     <div style="padding: 0px 20px;">
         <ul wicket:id="floors" class="creams-building___3PLGt">
-            <li>
+            <!-- TODO floor 封装成组件？ -->
+            <li wicket:id="floor">
                 <div class="active___3vCd4">
                     <div wicket:id="floor_name" class="floorNum___3UlMv">自定义</div>
                     <div wicket:id="floor_area" class="floorArea___GbefK">5566㎡</div>
                     <div class="editIcon___2cIct"><i class="creamsicon_17" style="font-size: 12px;"></i></div>
                 </div>
-                <div style="width: 100%; display: flex;">
-                    <div wicket:id="units"
+                <!-- TODO units和unit 封装成组件？ -->
+                <div style="width: 100%; display: flex;" wicket:id="units">
+                    <div wicket:id="unit"
                          class="baseBlock___1d_rM baseBlocktTansition___25rsg contractVoid___1FdW4 promotion___xQp5m"
                          style="width: 25.9253%;">
                         <div class="insideRow___2UGmP">
