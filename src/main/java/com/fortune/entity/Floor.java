@@ -11,6 +11,8 @@ public class Floor implements Serializable {
     private String name;
     //面积，不可编辑，应该根据unit来统计
     private double area;
+    //unit个数
+    private Integer unitCount;
     //Unit列表
     private List<Unit> units;
 }

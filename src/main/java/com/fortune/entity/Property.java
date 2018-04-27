@@ -13,8 +13,8 @@ public class Property implements Serializable {
     private double totalArea;
     //管理面积
     private double manageArea;
-    //所在楼层
-    private int totalFloor;
+    //总楼层数
+    private int floorCount;
     //楼层列表
     private List<Floor> floors;
 }

@@ -24,25 +24,26 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Slf4j
-public class DataFixture  {
+public class DataFixture {
 
-    public  static Property generateDemoData(){
+    public static Property generateDemoData() {
         Property property = new Property();
         List<Floor> floors = new ArrayList<>();
-        List<Unit> units = new ArrayList<>();
 
-        property.setName("AIAZ");
-        for (int i=0;i<3;i++){
+        property.setName("宝地广场");
+        property.setManageArea(10000);
+        property.setTotalArea(10000);
+        property.setFloorCount(5);
+        for (int i = 0; i < property.getFloorCount(); i++) {
             Floor floor = new Floor();
-            floor.setName(i+"--楼");
-            floor.setArea(100*(i+1));
-            for (int j=0;j<3;j++){
-                if(i == j){
-                    Unit unit = new Unit();
-                    unit.setName(i + "--楼--" + j + "--单元");
-                    unit.setArea(100*(j+1));
-                    units.add(unit);
-                }
+            floor.setName(i + "楼");
+            floor.setArea(1000 * Math.random());
+            List<Unit> units = new ArrayList<>();
+            for (int j = 0; j < 10 * Math.random(); j++) {
+                Unit unit = new Unit();
+                unit.setName(i + "楼" + j + "单元");
+                unit.setArea(100 * Math.random());
+                units.add(unit);
             }
             floor.setUnits(units);
             floors.add(floor);
